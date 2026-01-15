@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>aslam Abu ElEzz | 3D Meat Experience</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><style>
+:root{
+ --gold:#ffd700;
+ --red:#b30000;
+ --dark:#030303;
+ --glass:rgba(20,20,20,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:var(--dark);color:#fff;overflow-x:hidden}
+
+/* 3D BACKGROUND */
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+
+/* NAV */
+nav{
+ position:fixed;top:0;width:100%;z-index:1000;
+ background:rgba(0,0,0,.6);
+ backdrop-filter:blur(15px);
+ display:flex;justify-content:space-between;align-items:center;
+ padding:15px 40px;border-bottom:1px solid rgba(255,215,0,.2)
+}
+nav h1{color:var(--gold);font-size:1.6rem}
+nav ul{display:flex;gap:30px;list-style:none}
+nav li{cursor:pointer}
+
+/* HERO */
+header{
+ height:100vh;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center
+}
+header h2{
+ font-size:11vw;font-weight:900;
+ background:linear-gradient(180deg,#fff,var(--gold));
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+ text-shadow:0 30px 80px rgba(255,215,0,.4)
+}
+header p{color:#ccc;font-size:1.3rem;margin-top:10px}
+
+/* SECTION */
+section{padding:120px 40px}
+section h3{
+ text-align:center;color:var(--gold);
+ font-size:3rem;margin-bottom:60px
+}
+
+/* GRID 3D */
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:40px
+}
+
+.card{
+ background:var(--glass);
+ border-radius:25px;
+ border:1px solid rgba(255,215,0,.25);
+ transform-style:preserve-3d;
+ transition:.6s;
+ box-shadow:0 30px 80px rgba(0,0,0,.8)
+}
+.card:hover{
+ transform:rotateY(10deg) rotateX(5deg) translateY(-15px);
+ box-shadow:0 50px 120px rgba(255,215,0,.35)
+}
+
+.card img{
+ width:100%;height:220px;object-fit:cover;
+ transform:translateZ(30px)
+}
+
+.card .info{
+ padding:20px;text-align:center
+}
+.card h4{font-size:1.2rem;margin-bottom:10px}
+.card button{
+ background:var(--gold);color:#000;
+ border:none;border-radius:30px;
+ padding:8px 25px;font-weight:bold;cursor:pointer
+}
+
+/* WHATSAPP */
+.wa{
+ position:fixed;bottom:30px;right:30px;
+ width:70px;height:70px;border-radius:50%;
+ background:#25D366;color:#fff;
+ display:flex;align-items:center;justify-content:center;
+ font-size:34px;z-index:999
+}
+
+footer{text-align:center;padding:30px;color:#777}
+</style></head>
+<body><div id="bg"></div><nav>
+ <h1>Islam Abu ElEzz</h1>
+ <ul>
+  <li onclick="scrollTo(0,800)">الدواجن</li>
+  <li onclick="document.getElementById('frozen').scrollIntoView()">المجمدات</li>
+  <li onclick="order('استفسار')">تواصل</li>
+ </ul>
+</nav><header>
+ <h2>Islam Abu ElEzz</h2>
+ <p>3D Premium Meat & Frozen Experience</p>
+</header><section>
+<h3>🍗 قسم الدواجن واللحوم</h3>
+<div class="grid"><div class="card"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"><div class="info"><h4>فراخ بيضاء</h4><button onclick="order('فراخ بيضاء')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781"><div class="info"><h4>فراخ حمراء</h4><button onclick="order('فراخ حمراء')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8"><div class="info"><h4>فراخ بلدي</h4><button onclick="order('فراخ بلدي')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1516684669134-de6d7c47743b"><div class="info"><h4>رومي</h4><button onclick="order('رومي')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8"><div class="info"><h4>حمام</h4><button onclick="order('حمام')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468"><div class="info"><h4>بط أبيض</h4><button onclick="order('بط أبيض')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1597393353419-943696078ce9"><div class="info"><h4>بانيه</h4><button onclick="order('بانيه')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f"><div class="info"><h4>أجنحة</h4><button onclick="order('أجنحة')">اطلب</button></div></div></div>
+</section><section id="frozen">
+<h3>❄️ قسم المجمدات</h3>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db"><div class="info"><h4>لحم مفروم</h4><button onclick="order('لحم مفروم')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1570145820404-ab66b6780562"><div class="info"><h4>سجق شرقي</h4><button onclick="order('سجق شرقي')">اطلب</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1565060169194-1dd0eb35047b"><div class="info"><h4>خضروات مجمدة</h4><button onclick="order('خضروات مجمدة')">اطلب</button></div></div>
+</div>
+</section><a class="wa" href="https://wa.me/201157049647" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<footer>© 2026 Islam Abu ElEzz – 3D Premium Store</footer><script>
+/* THREE JS BACKGROUND */
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.getElementById('bg').appendChild(renderer.domElement);
+
+const geometry=new THREE.TorusKnotGeometry(10,3,100,16);
+const material=new THREE.MeshBasicMaterial({color:0xffd700,wireframe:true});
+const knot=new THREE.Mesh(geometry,material);
+scene.add(knot);
+camera.position.z=30;
+
+function animate(){
+ requestAnimationFrame(animate);
+ knot.rotation.x+=0.002;
+ knot.rotation.y+=0.003;
+ renderer.render(scene,camera);
+}
+animate();
+
+function order(p){
+ const msg=`السلام عليكم، محتاج ${p}`;
+ window.open(`https://wa.me/201157049647?text=${encodeURIComponent(msg)}`)
+}
+</script></body>
+</html>
